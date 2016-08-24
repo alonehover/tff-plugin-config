@@ -36,6 +36,8 @@ public class TffConfig extends CordovaPlugin {
     public static String platform;                            // Device OS
     public static String uuid;                                // Device UUID
 
+    private String channel = "";   //app发布渠道
+
     private static final String ANDROID_PLATFORM = "Android";
     private static final String AMAZON_PLATFORM = "amazon-fireos";
     private static final String AMAZON_DEVICE = "Amazon";
@@ -55,6 +57,7 @@ public class TffConfig extends CordovaPlugin {
      */
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
+        channel = webView.getPreferences().getString("TffConfig_Channel", "");
         TffConfig.uuid = getUuid();
     }
 
@@ -67,8 +70,9 @@ public class TffConfig extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if ("tffconfig".equals(action)) {
+        if ("channel".equals(action)) {
             JSONObject r = new JSONObject();
+            r.put("channel", channel);
             r.put("uuid", TffConfig.uuid);
             r.put("version", this.getOSVersion());
             r.put("platform", this.getPlatform());

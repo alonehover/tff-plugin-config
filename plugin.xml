@@ -6,8 +6,6 @@
 
     <name>TffConfig</name>
 
-    <preference name="TffConfig_Channel"/>
-
     <js-module name="TffConfig" src="www/tffconfig.js">
         <clobbers target="TffConfig" />
     </js-module>
@@ -15,7 +13,6 @@
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <preference name="channel" value="$TffConfig_Channel" />
             <feature name="TffConfig" >
                 <param name="android-package" value="org.apache.cordova.tffconfig.TffConfig"/>
             </feature>
