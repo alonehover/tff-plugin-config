@@ -6,7 +6,7 @@
 
     <name>TffConfig</name>
 
-    <preference name="TffConfig_Coupon"/>
+    <preference name="TffConfig_Channel"/>
 
     <js-module name="TffConfig" src="www/tffconfig.js">
         <clobbers target="TffConfig" />
