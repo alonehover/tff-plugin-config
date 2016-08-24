@@ -6,13 +6,16 @@
 
     <name>TffConfig</name>
 
-    <js-module name="tffconfig" src="www/tffconfig.js">
-        <clobbers target="tffconfig" />
+    <preference name="TffConfig_Coupon"/>
+
+    <js-module name="TffConfig" src="www/tffconfig.js">
+        <clobbers target="TffConfig" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
+            <preference name="channel" value="$TffConfig_Channel" />
             <feature name="TffConfig" >
                 <param name="android-package" value="org.apache.cordova.tffconfig.TffConfig"/>
             </feature>
